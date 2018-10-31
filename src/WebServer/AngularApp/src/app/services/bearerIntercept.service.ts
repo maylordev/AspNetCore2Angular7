@@ -26,7 +26,7 @@ export class BearerInterceptService implements HttpInterceptor {
     // modify request
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${localStorage.getItem('auth_token')}`
+        Authorization: `Bearer ${localStorage.getItem('authToken')}`
       }
     });
 
@@ -40,9 +40,7 @@ export class BearerInterceptService implements HttpInterceptor {
       tap(
         event => {
           if (event instanceof HttpResponse) {
-            this._logger.info(' all looks good');
-            // http response status code
-            this._logger.info(event.status);
+            this._logger.info(`Request Status: ${event.status}`);
             // shows success snackbar with green background
             // this._notification.openSnackBar(
             //   event.statusText,
@@ -52,10 +50,9 @@ export class BearerInterceptService implements HttpInterceptor {
           }
         },
         error => {
-          // http response status code
           this._logger.info('----response----');
-          this._logger.error(`status code: ${error.status}`);
-          this._logger.error(error.message);
+          this._logger.error(`Response Status: ${error.status}`);
+          this._logger.error(`Response Error Message: ${error.message}`);
           this._logger.info('--- end of response---');
           // show error snackbar with red background
           this._notification.openSnackBar(

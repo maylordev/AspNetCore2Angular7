@@ -12,11 +12,9 @@
         <form #f="ngForm" novalidate (ngSubmit)="login(f)">
 
             <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="text" required name="email" class="form-control" placeholder="Email" [ngModel]="credentials.email"
-                    #email="ngModel" tmFocus validateEmail>
-                <small [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">Please enter a
-                    valid email</small>
+                <label for="username">Username</label>
+                <input id="username" type="text" required name="username" class="form-control" placeholder="Username"
+                    [ngModel]="credentials.username" #username="ngModel" tmFocus>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
