@@ -26,16 +26,31 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'">
+    <Compile Update="appsettings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>appsettings.Development.json</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <!-- <ItemGroup>
     <Compile Update="appsettings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>appsettings.json</DependentUpon>
     </Compile>
-  </ItemGroup>
+  </ItemGroup> -->
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <None Update="appsettings.json">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>appsettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup> -->
+
+  <ItemGroup Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'">
+    <None Update="appsettings.Development.json">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>appsettings.Designer.cs</LastGenOutput>
     </None>
