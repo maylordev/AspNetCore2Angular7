@@ -1528,3 +1528,23 @@
 2018-10-31 17:54:37.4102 Trace File Target[logfile] has 2 layouts
 2018-10-31 17:54:37.4506 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender+Factory
 2018-10-31 17:54:37.6895 Debug Watching path '/Users/maylortaylor/Dropbox/Dev/_Bovsi/BovsiTimeClock/src/Web.Api' filter 'nlog.config' for changes.
+2018-10-31 18:14:39.8373 Info Shutting down logging...
+2018-10-31 18:14:39.8484 Debug Stopping file watching for path '/Users/maylortaylor/Dropbox/Dev/_Bovsi/BovsiTimeClock/src/Web.Api' filter 'nlog.config'
+2018-10-31 18:14:39.8607 Debug Closing logging configuration...
+2018-10-31 18:14:39.8627 Trace Closing File Target[logfile]
+2018-10-31 18:14:39.8669 Debug Closing target 'File Target[logfile]'.
+2018-10-31 18:14:39.8778 Debug Closed target 'File Target[logfile]'.
+2018-10-31 18:14:39.8778 Trace Closing 'c:/temp/logs/${shortdate}_logfile.txt'
+2018-10-31 18:14:39.8793 Trace Closing Layout Renderer: ${literal}
+2018-10-31 18:14:39.8809 Trace Closing Layout Renderer: ${shortdate}
+2018-10-31 18:14:39.8809 Trace Closing Layout Renderer: ${literal}
+2018-10-31 18:14:39.8817 Trace Closing '${longdate} ${level:uppercase=true} ${message}'
+2018-10-31 18:14:39.8817 Trace Closing Layout Renderer: ${longdate}
+2018-10-31 18:14:39.8817 Trace Closing Layout Renderer: ${literal}
+2018-10-31 18:14:39.8817 Trace Closing Layout Renderer: ${uppercase}
+2018-10-31 18:14:39.8830 Trace Closing SimpleLayout=Layout Renderer: ${level}
+2018-10-31 18:14:39.8830 Trace Closing Layout Renderer: ${level}
+2018-10-31 18:14:39.8830 Trace Closing Layout Renderer: ${literal}
+2018-10-31 18:14:39.8839 Trace Closing Layout Renderer: ${message}
+2018-10-31 18:14:39.8839 Debug Finished closing logging configuration.
+2018-10-31 18:14:39.8839 Info Logger has been shut down.
