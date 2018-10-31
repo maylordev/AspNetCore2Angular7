@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active">
+      <mat-icon svgIcon="home"></mat-icon>
+      Home
+    </button>
+    <button *ngIf="isLoggedIn" mat-button [routerLink]="['/dashboard']" routerLinkActive="router-link-active">
+      <mat-icon svgIcon="view-dashboard"></mat-icon>
+      Dashboard
+    </button>
+    <button mat-button [routerLink]="['/timeclock']" routerLinkActive="router-link-active">
+      <mat-icon svgIcon="timetable"></mat-icon>
+      Time Clock
+    </button>
+
+    <span class="nav-menu-spacer"></span>
+
+
+    <button mat-button [matMenuTriggerFor]="accountMenu">
+      <mat-icon svgIcon="account-circle"></mat-icon>
+      Account
+      <mat-icon svgIcon="menu-down"></mat-icon>
+    </button>
+
+    <mat-menu class="pull-right" #accountMenu="matMenu" [overlapTrigger]="false">
+      <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="['/account/login']">
+        <mat-icon svgIcon="login"></mat-icon>
+        Login
+      </button>
+      <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()">
+        <mat-icon svgIcon="logout"></mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+
+    <button *ngIf="!isLoggedIn" mat-button [routerLink]="['/account/register']">
+      <mat-icon svgIcon="account-plus"></mat-icon>
+      Register
+    </button>
+    <button mat-button (click)="changeTheme()">
+      <mat-icon svgIcon="lightbulb"></mat-icon>
+      <!-- <mat-icon svgIcon="lightbulb-on"></mat-icon> -->
+    </button>
+    <img class="logo-image pull-right" src="src/assets/images/bovsi-owl-500x250.png" alt="Bovsi Owl">
+
+    <!-- <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <a mat-button routerLink=".">Link</a> -->
+  </mat-toolbar-row>
+
+</mat-toolbar>

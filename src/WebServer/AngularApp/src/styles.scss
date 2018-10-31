@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~font-awesome/css/font-awesome.css';
+@import '~@angular/material/theming';
+/* @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; */
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+
+// $primary-color-dark: #1976d2;
+// $primary-color: #2196f3;
+// $primary-color-light: #bbdefb;
+// $primary-color-text: #ffffff;
+// $accent-color: #00bcd4;
+// $primary-text-color: #212121;
+// $secondary-text-color: #757575;
+// $divider-color: #bdbdbd;
+
+// import our custom themes
+@import 'bovsi-theme.scss';
+@import 'bovsi-dark-theme.scss';
+
+.bovsi-theme {
+  @include angular-material-theme($bovsi-theme);
+}
+// additional css classes
+// you can hardcode one of them on the <body> tag
+// or switch dynamically during runtime with [class]
+.bovsi-dark-theme {
+  @include angular-material-theme($bovsi-dark-theme);
+}
+
+// Notification / Material Snack Bar
+.blue-snackbar {
+  background: #2196f3;
+}
+.green-snackbar {
+  background: #1de9b6;
+}
+.red-snackbar {
+  background: #b00020;
+}

@@ -1,0 +1,190 @@
+/* 
+?
+? COLOR PALETTE GENERATOR: http://mcg.mbitson.com/
+?
+*/
+@import '~@angular/material/theming';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+//
+$md-dark-bovsitheme: (
+  50: #e1effc,
+  100: #b3d7f8,
+  200: #81bdf4,
+  300: #4ea3ef,
+  400: #288feb,
+  500: #027be8,
+  600: #0273e5,
+  700: #0168e2,
+  800: #015ede,
+  900: #014bd8,
+  A100: #ffffff,
+  A200: #cddbff,
+  A400: #9ab6ff,
+  A700: #80a4ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+$md-dark-bovsiaccent: (
+  50: #f1e0fd,
+  100: #ddb3fa,
+  200: #c680f7,
+  300: #af4df3,
+  400: #9d26f1,
+  500: #8c00ee,
+  600: #8400ec,
+  700: #7900e9,
+  800: #6f00e7,
+  900: #5c00e2,
+  A100: #ffffff,
+  A200: #e4d6ff,
+  A400: #c3a3ff,
+  A700: #b28aff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+$md-dark-bovsiwarn: (
+  50: #fcf2e7,
+  100: #f8dec3,
+  200: #f3c89c,
+  300: #eeb274,
+  400: #eaa256,
+  500: #e69138,
+  600: #e38932,
+  700: #df7e2b,
+  800: #db7424,
+  900: #d56217,
+  A100: #ffffff,
+  A200: #ffe3d4,
+  A400: #ffc3a1,
+  A700: #ffb287,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+// *
+// *
+$bovsi-app-primary: mat-palette($md-dark-bovsitheme, 800);
+$bovsi-app-accent: mat-palette($md-dark-bovsiaccent, A700);
+$bovsi-app-background-color: #696969;
+// $bovsi-app-background-color: map_get($mat-blue-grey, 50);
+// ? The warn palette is optional (defaults to red).
+$bovsi-app-warn: mat-palette($md-dark-bovsiwarn, 800);
+// *
+// *
+// Create the theme object (a Sass map containing all of the palettes).
+$bovsi-dark-theme: mat-dark-theme(
+  $bovsi-app-primary,
+  $bovsi-app-accent,
+  $bovsi-app-warn
+);
+
+// Insert custom background color
+$background: map-get($bovsi-dark-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: $bovsi-app-background-color
+  )
+);
+$bovsi-dark-theme: map_merge(
+  $bovsi-dark-theme,
+  (
+    background: $background
+  )
+);
+
+// // ? https://stackoverflow.com/questions/43438305/how-to-change-font-color-of-primary-palette-in-angular-material2
+// @function bovsi-dark-theme-foreground($color) {
+//   @return (
+//     base: $color,
+//     divider: $black-12-opacity,
+//     dividers: $black-12-opacity,
+//     disabled: rgba($color, 0.38),
+//     disabled-button: rgba($color, 0.38),
+//     disabled-text: rgba($color, 0.38),
+//     hint-text: rgba($color, 0.38),
+//     secondary-text: rgba($color, 0.54),
+//     icon: rgba($color, 0.54),
+//     icons: rgba($color, 0.54),
+//     text: rgba($color, 0.27),
+//     slider-off: rgba($color, 0.26),
+//     slider-off-active: rgba($color, 0.38),
+//     slider-min: rgba($color, 0.38)
+//   );
+// }
+// $dark-foreground: bovsi-dark-theme-foreground(
+//   mat-color($bovsi-app-primary, 100)
+// );
+// $bovsi-dark-theme-custom: map-merge(
+//   $bovsi-dark-theme,
+//   (
+//     foreground: $dark-foreground
+//   )
+// );
+//
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($bovsi-dark-theme);
+// ? Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+// @include mat-base-typography($custom-typography);
+// ? Override typography for a specific Angular Material components.
+// @include mat-checkbox-typography($custom-typography);
+// ? Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);

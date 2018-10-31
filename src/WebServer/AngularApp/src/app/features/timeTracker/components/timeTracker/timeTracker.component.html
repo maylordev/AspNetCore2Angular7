@@ -1,0 +1,157 @@
+<app-spinner *ngIf="!tableIsLoaded"></app-spinner>
+
+<div *ngIf="tableIsLoaded" class="table-container mat-elevation-z8">
+
+  <!-- Header  -->
+  <div class="filter-header">
+    <mat-form-field>
+      <input matInput #filter (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      <button mat-icon-button matSuffix aria-label="clear" *ngIf="filter.value" (click)="filter.value=''; applyFilter('');">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <form [formGroup]="timeTrackerForm" class="form-horizontal">
+    <!-- Table Start -->
+    <mat-table #table [dataSource]="dataSource">
+
+      <!-- Client Column -->
+      <ng-container matColumnDef="client">
+        <mat-header-cell *matHeaderCellDef> Client </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <mat-select placeholder="Client">
+              <mat-option *ngFor="let client of clients" [(value)]="element.client">
+                {{client.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Client </mat-footer-cell>
+      </ng-container>
+
+      <!-- Activity Column -->
+      <ng-container matColumnDef="activity">
+        <mat-header-cell *matHeaderCellDef> Activity </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <mat-select placeholder="Activity">
+              <mat-option *ngFor="let activity of activities" [(value)]="element.activity">
+                {{activity.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Activity </mat-footer-cell>
+      </ng-container>
+
+      <!-- Monday Column -->
+      <ng-container matColumnDef="monday">
+        <mat-header-cell *matHeaderCellDef> Monday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" formControlName="monday" step="{{timeStep}}" placeholder="Monday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Monday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Tuesday Column -->
+      <ng-container matColumnDef="tuesday">
+        <mat-header-cell *matHeaderCellDef> Tuesday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" step="{{timeStep}}" placeholder="Tuesday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Tuesday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Wednesday Column -->
+      <ng-container matColumnDef="wednesday">
+        <mat-header-cell *matHeaderCellDef> Wednesday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" step="{{timeStep}}" placeholder="Wednesday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Wednesday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Thursday Column -->
+      <ng-container matColumnDef="thursday">
+        <mat-header-cell *matHeaderCellDef> Thursday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" step="{{timeStep}}" placeholder="Thursday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Thursday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Friday Column -->
+      <ng-container matColumnDef="friday">
+        <mat-header-cell *matHeaderCellDef> Friday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" step="{{timeStep}}" placeholder="Friday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Friday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Saturday Column -->
+      <ng-container matColumnDef="saturday">
+        <mat-header-cell *matHeaderCellDef> Saturday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" step="{{timeStep}}" placeholder="Saturday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Saturday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Sunday Column -->
+      <ng-container matColumnDef="sunday">
+        <mat-header-cell *matHeaderCellDef> Sunday </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput type="number" step="{{timeStep}}" placeholder="Sunday">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Sunday </mat-footer-cell>
+      </ng-container>
+
+      <!-- Weekly Column -->
+      <ng-container matColumnDef="weekly">
+        <mat-header-cell *matHeaderCellDef> Weekly </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input disabled matInput type="number" step="{{timeStep}}" placeholder="Weekly">
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Weekly </mat-footer-cell>
+      </ng-container>
+
+      <!-- Notes Column -->
+      <ng-container matColumnDef="notes">
+        <mat-header-cell *matHeaderCellDef> Notes </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <textarea matInput placeholder="Notes" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef> Notes </mat-footer-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-footer-row *matFooterRowDef="displayedColumns" class="first-footer-row"></mat-footer-row>
+
+
+    </mat-table>
+  </form>
+
+</div>

@@ -1,0 +1,7 @@
+<div [ngClass]="{'bovsi-dark-theme': !!isDarkTheme, 'bovsi-theme': !isDarkTheme}" class="mat-typography mat-app-background">
+    <app-top-nav-menu (changeThemeEvent)="switchTheme($event)"></app-top-nav-menu>
+
+    <div class='container-fluid main-outlet'>
+        <router-outlet></router-outlet>
+    </div>
+</div>
