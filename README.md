@@ -1,9 +1,9 @@
 # AspNetCoreApiStarter
 An ASP.NET Core (v2.1) Web API project to quickly bootstrap new projects.  Includes Identity, JWT authentication w/ refresh tokens.
 
-[Github repo](https://github.com/mmacneil/AspNetCoreApiStarter)
+[Original Github repo](https://github.com/mmacneil/AspNetCoreApiStarter) -- Original github repo that this template came from.
 
-[Repo's Blog write-up](https://fullstackmark.com/post/19/jwt-authentication-flow-with-refresh-tokens-in-aspnet-core-web-api)
+[Repo's Blog write-up by FullStack Mark](https://fullstackmark.com/post/19/jwt-authentication-flow-with-refresh-tokens-in-aspnet-core-web-api)
 
 # Setup
 - Uses Sql Server Express LocalDB (If using Visual Studio install it under Individual Components in the Visual Studio installer or install separately using [this link](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017).
