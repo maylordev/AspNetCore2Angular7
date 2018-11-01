@@ -2,6 +2,7 @@
 An ASP.NET Core (v2.1) Web API project to quickly bootstrap new projects.  Includes Identity, JWT authentication w/ refresh tokens.
 
 [Github repo](https://github.com/mmacneil/AspNetCoreApiStarter)
+
 [Repo's Blog write-up](https://fullstackmark.com/post/19/jwt-authentication-flow-with-refresh-tokens-in-aspnet-core-web-api)
 
 # Setup
