@@ -24,11 +24,11 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               {"glob": "favicon.ico", "input": "./", "output": "./"},
-              {"glob": "**/*", "input": "./assets/", "output": "./assets/"},
+              {"glob": "**/*", "input": "src/assets/", "output": "src/assets/"},
               {
                 "glob": "mdi.svg",
                 "input": "../node_modules/@mdi/angular-material",
-                "output": "./src/assets"
+                "output": "src/assets"
               }
             ],
             "styles": [
@@ -89,7 +89,7 @@
               "src/bovsi-dark-theme.scss"
             ],
             "scripts": [],
-            "assets": ["src/favicon.ico", "src/assets"]
+            "assets": ["./src/favicon.ico", "./src/assets"]
           }
         },
         "lint": {
@@ -129,3 +129,4 @@
   },
   "defaultProject": "AngularApp"
 }
+
