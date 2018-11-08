@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="automapper" Version="7.0.1" />
+    <PackageReference Include="CodeFirst_FluentApi" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0-preview2-35157" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0-preview2-35157" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0-preview2-35157" />

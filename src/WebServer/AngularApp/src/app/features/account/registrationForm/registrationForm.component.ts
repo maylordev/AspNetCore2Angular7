@@ -28,12 +28,12 @@ export class RegistrationFormComponent implements OnInit {
           value.password,
           value.firstName,
           value.lastName,
-          value.location
+          value.userName
         )
         .subscribe(
           result => {
             if (result) {
-              this.router.navigate(['/login'], {
+              this.router.navigate(['/dashboard'], {
                 queryParams: {brandNew: true, email: value.email}
               });
             }

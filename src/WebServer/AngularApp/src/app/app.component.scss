@@ -1,4 +1,7 @@
 .main-outlet {
   padding-top: 15px;
   padding-bottom: 15px;
+  min-height: 100%;
+  height: auto !important; /* cross-browser */
+  height: 100%; /* cross-browser */
 }

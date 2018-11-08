@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +16,28 @@ namespace Web.Api.Infrastructure.Data
         {
         }
 
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Employer> Employers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Supervisor> Supervisors { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<WorkActivity> WorkActivities { get; set; }
+        public DbSet<Client> Clients { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(ConfigureUser);
+
+            // modelBuilder.Entity<Organization>()
+            //     .HasMany<Employee>(o => o.Employees)
+            //     .WithOne(e => e.Organization)
+            //     .HasForeignKey(e => e.OrganizationId)
+            //     // Cascade delete automatically deletes the child row 
+            //     // when the related parent row is deleted. 
+            //     // For example, if an Organization is deleted, then all the Employees
+            //     // in that org should also be deleted from the database automatically
+            //     .OnDelete(DeleteBehavior.Cascade);
         }
 
         public void ConfigureUser(EntityTypeBuilder<User> builder)
@@ -29,10 +49,6 @@ namespace Web.Api.Infrastructure.Data
             builder.Ignore(b => b.Email);
             builder.Ignore(b => b.PasswordHash);
         }
-
-        public DbSet<RefreshToken> RefreshTokens { get; set; }
-        public DbSet<User> Users { get; set; }
-
         public override int SaveChanges()
         {
             AddAuitInfo();

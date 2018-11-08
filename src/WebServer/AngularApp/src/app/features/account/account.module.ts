@@ -5,14 +5,14 @@ import {FormsModule} from '@angular/forms';
 import {LoginFormComponent} from './loginForm/loginForm.component';
 import {RegistrationFormComponent} from './registrationForm/registrationForm.component';
 import {UserService} from '../../shared/services/user.service';
-import {AccountRouting} from './account.routing';
+import {AccountRoutingModule} from './account.routing';
 import {SharedModule} from '../../shared/shared.module';
 import {EmailValidatorDirective} from '../../directives/emailValidator.directive';
 
 // import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, AccountRouting, SharedModule],
+  imports: [CommonModule, FormsModule, AccountRoutingModule, SharedModule],
   declarations: [
     RegistrationFormComponent,
     EmailValidatorDirective,

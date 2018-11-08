@@ -1,0 +1,26 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>{{pageAction}} Employer</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="form-container">
+            <form #form="ngForm" [formGroup]="employerUpsertForm" (ngSubmit)="submitForm()">
+
+                <mat-form-field>
+                    <input matInput placeholder="Employer Name" formControlName="employerName">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Employer Description" formControlName="employerDescription">
+                </mat-form-field>
+
+
+            </form>
+        </div>
+    </mat-card-content>
+
+
+    <mat-card-actions>
+        <button (click)="submitForm()" mat-raised-button color="primary" type="submit" [disabled]="employerUpsertForm.invalid">{{pageAction}}</button>
+        <button mat-raised-button color="accent" type="button" (click)="resetForm()">Clear</button>
+    </mat-card-actions>
+</mat-card>

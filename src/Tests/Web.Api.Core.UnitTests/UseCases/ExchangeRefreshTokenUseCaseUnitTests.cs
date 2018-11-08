@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using Moq;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Core.Dto;
@@ -46,7 +47,7 @@ namespace Web.Api.Core.UnitTests.UseCases
 
             const string refreshToken = "1234";
             var user = new User("", "", "", "");
-            user.AddRereshToken(refreshToken, 0, "");
+            user.AddRereshToken(refreshToken, Guid.NewGuid(), "");
 
             var mockUserRepository = new Mock<IUserRepository>();
             mockUserRepository.Setup(repo => repo.GetSingleBySpec(It.IsAny<UserSpecification>())).ReturnsAsync(user);

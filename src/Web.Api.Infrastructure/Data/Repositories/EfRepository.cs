@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,7 @@ namespace Web.Api.Infrastructure.Data.Repositories
             _appDbContext = appDbContext;
         }
 
-        public virtual async Task<T> GetById(int id)
+        public virtual async Task<T> GetById(Guid id)
         {
             return await _appDbContext.Set<T>().FindAsync(id);
         }

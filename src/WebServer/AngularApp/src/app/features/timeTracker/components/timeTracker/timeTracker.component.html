@@ -2,15 +2,7 @@
 
 <div *ngIf="tableIsLoaded" class="table-container mat-elevation-z8">
 
-  <!-- Header  -->
-  <div class="filter-header">
-    <mat-form-field>
-      <input matInput #filter (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      <button mat-icon-button matSuffix aria-label="clear" *ngIf="filter.value" (click)="filter.value=''; applyFilter('');">
-        <mat-icon svgIcon="close"></mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
+
 
   <form [formGroup]="timeTrackerForm" class="form-horizontal">
     <!-- Table Start -->

@@ -1,0 +1,44 @@
+<div *ngIf="client | async as client">
+
+    <div class="container page-header">
+        <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+            <div class="blocks">
+                <button class="float-right" mat-raised-button color="primary" [routerLink]="['/activity/create']"
+                    routerLinkActive="router-link-active">
+                    <mat-icon svgIcon="plus"></mat-icon>
+                    Create Activity
+                </button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div fxLayout="row" fxLayoutAlign="center center" class="content">
+
+            <mat-card>
+                <mat-card-title>
+                    CLIENT: {{ client.name }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{ client.description }}
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <mat-tab-group mat-align-tabs="center">
+                        <mat-tab label="First">Content 1</mat-tab>
+                        <mat-tab label="Second">Content 2</mat-tab>
+                        <mat-tab label="Third">Content 3</mat-tab>
+                    </mat-tab-group>
+
+                    <app-activity-list></app-activity-list>
+
+                </mat-card-content>
+
+                <mat-card-footer>
+
+                </mat-card-footer>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

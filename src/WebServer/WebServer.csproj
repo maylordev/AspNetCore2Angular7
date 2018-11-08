@@ -7,7 +7,7 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>AngularApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-
+    <UserSecretsId>8dd69dfc-8bd6-46b4-9bec-186b9044a48d</UserSecretsId>
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>

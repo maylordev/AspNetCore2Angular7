@@ -1,0 +1,32 @@
+<div *ngIf="activity | async as activity">
+
+    <div class="container">
+        <div fxLayout="row" fxLayoutAlign="center center" class="content">
+
+            <mat-card>
+                <mat-card-title>
+                    ACTIVITY: {{ activity.name }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{ activity.description }}
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <mat-tab-group mat-align-tabs="center">
+                        <mat-tab label="Due Date">
+                            {{ activity.dueDate | date:'fullDate' }}
+                        </mat-tab>
+                        <mat-tab label="Second">Content 2</mat-tab>
+                        <mat-tab label="Third">Content 3</mat-tab>
+                    </mat-tab-group>
+
+
+                </mat-card-content>
+
+                <mat-card-footer>
+
+                </mat-card-footer>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

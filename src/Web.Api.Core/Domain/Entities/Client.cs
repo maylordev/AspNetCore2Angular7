@@ -1,16 +1,23 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Web.Api.Core.Shared;
 
 namespace Web.Api.Core.Domain.Entities
 {
     public class Client : BaseEntity
     {
+        [Required]
         public string Name { get; set; }
-        public Client(int Id, string Name)
+        public string Description { get; set; }
+        // public int EmployerId { get; set; }
+        // public Employer Employer { get; set; }
+        public Guid EmployerId { get; set; }
+
+        internal Client() {/* Required by EF */}
+        public Client(string name)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Created = DateTime.Now;
+            this.Name = name;
+            this.Created = DateTime.UtcNow;
         }
     }
 }

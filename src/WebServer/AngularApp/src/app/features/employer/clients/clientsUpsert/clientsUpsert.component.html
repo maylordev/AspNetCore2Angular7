@@ -1,0 +1,25 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>{{pageAction}} Client</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="form-container">
+            <form [formGroup]="clientUpsertForm" (ngSubmit)="submitForm()">
+
+                <mat-form-field>
+                    <input matInput placeholder="Client Name" formControlName="clientName">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Client Description" formControlName="clientDescription">
+                </mat-form-field>
+
+            </form>
+        </div>
+    </mat-card-content>
+
+
+    <mat-card-actions>
+        <button (click)="submitForm()" mat-raised-button color="primary" type="submit" [disabled]="clientUpsertForm.invalid">{{pageAction}}</button>
+        <button mat-raised-button color="accent" type="button" (click)="resetForm()">Clear</button>
+    </mat-card-actions>
+</mat-card>

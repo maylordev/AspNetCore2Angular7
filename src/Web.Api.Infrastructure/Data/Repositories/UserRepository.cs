@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Core.Dto;
 using Web.Api.Core.Dto.GatewayResponses.Repositories;
@@ -16,9 +20,9 @@ namespace Web.Api.Infrastructure.Data.Repositories
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
-        
 
-        public UserRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext): base(appDbContext)
+
+        public UserRepository(UserManager<AppUser> userManager, IMapper mapper, AppDbContext appDbContext) : base(appDbContext)
         {
             _userManager = userManager;
             _mapper = mapper;
@@ -26,11 +30,11 @@ namespace Web.Api.Infrastructure.Data.Repositories
 
         public async Task<CreateUserResponse> Create(string firstName, string lastName, string email, string userName, string password)
         {
-            var appUser = new AppUser {Email = email, UserName = userName};
+            var appUser = new AppUser { Email = email, UserName = userName };
             var identityResult = await _userManager.CreateAsync(appUser, password);
 
-            if (!identityResult.Succeeded) return new CreateUserResponse(appUser.Id, false,identityResult.Errors.Select(e => new Error(e.Code, e.Description)));
-          
+            if (!identityResult.Succeeded) return new CreateUserResponse(appUser.Id, false, identityResult.Errors.Select(e => new Error(e.Code, e.Description)));
+
             var user = new User(firstName, lastName, appUser.Id, appUser.UserName);
             _appDbContext.Users.Add(user);
             await _appDbContext.SaveChangesAsync();
@@ -42,6 +46,11 @@ namespace Web.Api.Infrastructure.Data.Repositories
         {
             var appUser = await _userManager.FindByNameAsync(userName);
             return appUser == null ? null : _mapper.Map(appUser, await GetSingleBySpec(new UserSpecification(appUser.Id)));
+        }
+        async Task<User> IRepository<User>.GetById(Guid id)
+        {
+            var user = await _appDbContext.Users.FindAsync(id);
+            return user;
         }
 
         public async Task<bool> CheckPassword(User user, string password)

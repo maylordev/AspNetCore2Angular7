@@ -1,0 +1,45 @@
+<div *ngIf="employer | async as employer">
+
+    <div class="container page-header">
+        <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+            <div class="blocks">
+                <button class="float-right" mat-raised-button color="primary" [routerLink]="['/client/create', {employerId: employer.id}]"
+                    routerLinkActive="router-link-active">
+                    <mat-icon svgIcon="plus"></mat-icon>
+                    Create Client
+                </button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div fxLayout="row" fxLayoutAlign="center center" class="content">
+            <mat-card>
+                <mat-card-title>
+                    EMPLOYER: {{ employer.name }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{ employer.description }}
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <mat-tab-group mat-align-tabs="center">
+                        <mat-tab label="First">
+                            Content 1
+                        </mat-tab>
+                        <mat-tab label="Second">Content 2</mat-tab>
+                        <mat-tab label="Third">Content 3</mat-tab>
+                    </mat-tab-group>
+
+                    <app-clients-list></app-clients-list>
+
+                </mat-card-content>
+
+                <mat-card-footer>
+
+                </mat-card-footer>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

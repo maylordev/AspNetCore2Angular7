@@ -7,11 +7,15 @@ import {LoggerService} from './core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'Bovsi Studios Timeclock';
   isDarkTheme: boolean;
   constructor(private _logger: LoggerService) {
     this._logger.info('Starting App.Component');
+
+    // get theme setting
+    const isDarkTheme = localStorage.getItem('isDarkTheme');
+    this.isDarkTheme = JSON.parse(isDarkTheme);
   }
-  title = 'Bovsi Studios Timeclock';
   switchTheme(isDarkTheme: boolean) {
     this.isDarkTheme = !isDarkTheme;
     this._logger.info(`Dark Theme? ${this.isDarkTheme}`);

@@ -1,0 +1,31 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>{{pageAction}} Activity</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="form-container">
+            <form [formGroup]="activityUpsertForm" (ngSubmit)="submitForm()">
+
+                <mat-form-field>
+                    <input matInput placeholder="Activity Name" formControlName="activityName">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Activity Description" formControlName="activityDescription">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="activityDueDate" placeholder="Activity Due Date"
+                        formControlName="activityDueDate">
+                    <mat-datepicker-toggle matSuffix [for]="activityDueDate"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #activityDueDate></mat-datepicker>
+                </mat-form-field>
+
+            </form>
+        </div>
+    </mat-card-content>
+
+
+    <mat-card-actions>
+        <button (click)="submitForm()" mat-raised-button color="primary" type="submit" [disabled]="activityUpsertForm.invalid">{{pageAction}}</button>
+        <button mat-raised-button color="accent" type="button" (click)="resetForm()">Clear</button>
+    </mat-card-actions>
+</mat-card>

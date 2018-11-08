@@ -1,3 +1,4 @@
+using System;
 using Web.Api.Core.Domain.Entities;
 using Web.Api.Infrastructure.Data;
 using Web.Api.Infrastructure.Identity;
@@ -20,14 +21,14 @@ namespace Web.Api.IntegrationTests
                 SecurityStamp = "YIJZLWUFIIDD3IZSFDD7OQWG6D4QIYPB",
                 ConcurrencyStamp = "e432007d-0a54-4332-9212-ca9d7e757275"
             });
-            
+
             dbContext.SaveChanges();
         }
 
         public static void PopulateTestData(AppDbContext dbContext)
         {
             var user = new User("Mark", "Macneil", "41532945-599e-4910-9599-0e7402017fbe", "mmacneil");
-            user.AddRereshToken("rB1afdEe6MWu6TyN8zm58xqt/3KWOLRAah2nHLWcboA=", 1, "127.0.0.1");
+            user.AddRereshToken("rB1afdEe6MWu6TyN8zm58xqt/3KWOLRAah2nHLWcboA=", Guid.NewGuid(), "127.0.0.1");
             dbContext.Users.Add(user);
             dbContext.SaveChanges();
         }

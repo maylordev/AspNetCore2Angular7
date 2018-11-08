@@ -1,12 +1,12 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource, MatSort} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
-import {FormControl, Validators, FormBuilder} from '@angular/forms';
+import {Validators, FormBuilder} from '@angular/forms';
 import {LoggerService} from 'src/app/core';
 import {ActivitiesService} from '../../services/activities.service';
-import {Activity} from '../../models/activity.model';
-import {Client} from '../../models/client.model';
 import {ClientsService} from '../../services/clients.service';
+import {Client} from 'src/app/models/client.model';
+import {Activity} from 'src/app/models/activity.model';
 export interface TableElement {
   client: string;
   activity: string;

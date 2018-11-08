@@ -9,7 +9,7 @@ namespace Web.Api.Core.Shared
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
     }

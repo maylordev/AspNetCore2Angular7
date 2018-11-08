@@ -4,7 +4,7 @@ import {MaterialModule} from './material/material.module';
 import {RouterModule} from '@angular/router';
 import {TopNavMenuComponent} from '../core/top-nav-menu/top-nav-menu.component';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
-import {NotificationComponent} from './notifications/notificiation.service';
+import {NotificationService} from './notifications/notificiation.service';
 
 @NgModule({
   imports: [CommonModule, MaterialModule, RouterModule],
@@ -12,14 +12,9 @@ import {NotificationComponent} from './notifications/notificiation.service';
     CommonModule,
     MaterialModule,
     TopNavMenuComponent,
-    LoadingSpinnerComponent,
-    NotificationComponent
+    LoadingSpinnerComponent
   ],
-  providers: [NotificationComponent],
-  declarations: [
-    TopNavMenuComponent,
-    LoadingSpinnerComponent,
-    NotificationComponent
-  ]
+  providers: [NotificationService],
+  declarations: [TopNavMenuComponent, LoadingSpinnerComponent]
 })
 export class SharedModule {}

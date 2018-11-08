@@ -28,11 +28,14 @@ export class TopNavMenuComponent implements OnInit {
 
   ngOnInit() {}
   changeTheme(): void {
+    localStorage.setItem('isDarkTheme', JSON.stringify(this.isDarkTheme));
+
     if (this.isDarkTheme) {
       this.isDarkTheme = false;
     } else {
       this.isDarkTheme = true;
     }
+
     this.changeThemeEvent.emit(this.isDarkTheme);
   }
   logout() {

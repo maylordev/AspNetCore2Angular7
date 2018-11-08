@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
@@ -161,7 +162,9 @@ namespace Web.Api
             builder.RegisterModule(new InfrastructureModule());
 
             // Presenters
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t => t.Name.EndsWith("Presenter")).SingleInstance();
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                .Where(t => t.Name.EndsWith("Presenter"))
+                .SingleInstance();
 
             builder.Populate(services);
             var container = builder.Build();

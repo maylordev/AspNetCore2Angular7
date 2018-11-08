@@ -17,6 +17,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   isRequesting: boolean;
   submitted: boolean = false;
   credentials: Credentials = {username: '', password: ''};
+  returnUrl: string;
 
   constructor(
     private userService: UserService,
@@ -25,6 +26,10 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    // Get the query params
+    this.activatedRoute.queryParams.subscribe(
+      params => (this.returnUrl = params['return'] || '/dashboard')
+    );
     // subscribe to router event
     this.subscription = this.activatedRoute.queryParams.subscribe(
       (param: any) => {
@@ -47,7 +52,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       this.userService.login(value.username, value.password).subscribe(
         result => {
           if (result) {
-            this.router.navigate(['/dashboard']);
+            this.router.navigateByUrl(this.returnUrl);
           }
         },
         error => (this.errors = error),

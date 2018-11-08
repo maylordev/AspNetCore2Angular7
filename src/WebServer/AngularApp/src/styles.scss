@@ -30,6 +30,10 @@
   @include angular-material-theme($bovsi-dark-theme);
 }
 
+html,
+body {
+  height: 100%;
+}
 // Notification / Material Snack Bar
 .blue-snackbar {
   background: #2196f3 !important;
@@ -39,4 +43,12 @@
 }
 .red-snackbar {
   background: #b00020 !important;
+}
+
+.mat-icon {
+  vertical-align: inherit !important;
+}
+
+.page-header {
+  padding: 15px;
 }

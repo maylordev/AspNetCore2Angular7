@@ -1,8 +1,10 @@
-import {ModuleWithProviders} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {PageNotFoundComponent} from './components/error/page-not-found/page-not-found.component';
 import {HomeComponent} from './components/home/home.component';
+import {EmployerListComponent} from './features/employer/employerList/employerList.component';
+import {AuthGuard} from './auth.guard';
 
 /***************************************************************
  * Lazy Loading to Eager Loading
@@ -25,4 +27,8 @@ const appRoutes: Routes = [
   }
 ];
 
-export const AppRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes, {enableTracing: true})],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

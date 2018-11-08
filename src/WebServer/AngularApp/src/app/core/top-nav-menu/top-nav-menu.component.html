@@ -8,11 +8,14 @@
       <mat-icon svgIcon="view-dashboard"></mat-icon>
       Dashboard
     </button>
-    <button mat-button [routerLink]="['/timeclock']" routerLinkActive="router-link-active">
+    <button *ngIf="isLoggedIn" mat-button [routerLink]="['/timeclock']" routerLinkActive="router-link-active">
       <mat-icon svgIcon="timetable"></mat-icon>
       Time Clock
     </button>
-
+    <button *ngIf="isLoggedIn" mat-button [routerLink]="['/employers']" routerLinkActive="router-link-active">
+      <mat-icon svgIcon="view-list"></mat-icon>
+      Employers
+    </button>
     <span class="nav-menu-spacer"></span>
 
 

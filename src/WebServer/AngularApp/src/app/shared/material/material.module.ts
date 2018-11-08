@@ -12,7 +12,12 @@ import {
   MatSelectModule,
   MatSortModule,
   MatTableModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatListModule,
+  MatTabsModule,
+  MatProgressBarModule,
+  MatPaginatorModule,
+  MatDatepickerModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 // import {CdkTableModule} from '@angular/cdk/table';
@@ -26,14 +31,18 @@ import {FormsModule} from '@angular/forms';
     MatIconModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatSortModule,
     MatTableModule,
-    MatSnackBarModule
-
+    MatSnackBarModule,
+    MatListModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatDatepickerModule
     // CdkTableModule
   ],
   exports: [
@@ -44,13 +53,18 @@ import {FormsModule} from '@angular/forms';
     MatIconModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatSortModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatDatepickerModule
     // CdkTableModule
   ]
 })

@@ -1,10 +1,18 @@
-import {ModuleWithProviders} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {TimeTrackerComponent} from './components/timeTracker/timeTracker.component';
+import {AuthGuard} from 'src/app/auth.guard';
 
-export const TimeTrackerRouting: ModuleWithProviders = RouterModule.forChild([
+const timeTrackerRoutes: Routes = [
   {
     path: 'timeclock',
-    component: TimeTrackerComponent
+    component: TimeTrackerComponent,
+    canActivate: [AuthGuard]
   }
-]);
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(timeTrackerRoutes)],
+  exports: [RouterModule]
+})
+export class TimeTrackerRoutingModule {}
